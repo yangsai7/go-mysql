@@ -23,10 +23,7 @@ type implMysql struct {
 
 // as AOP function, do log 、retry 、check timeout ...and so on
 func (cm *common) do(action func() error) (err error) {
-	retry := cm.retry
-	if retry < 0 {
-		retry = 0
-	}
+	retry := max(cm.retry, 0)
 	for i := 0; i <= retry; i++ {
 		select {
 		case <-cm.ctx.Done():
