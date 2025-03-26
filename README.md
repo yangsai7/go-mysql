@@ -14,13 +14,10 @@ import (
 	"fmt"
 	"time"
 
-	"gitlab.nolibox.com/skyteam/go-toml"
-	"gitlab.nolibox.com/skyteam/go-log"
-	"gitlab.nolibox.com/skyteam/go-mysql"
+	"github.com/yangsai7/go-mysql"
 )
 
 type Config struct {
-	Logconf   log.Config   `toml:"log"`
 	Mysqlconf mysql.Config `toml:"mysql"`
 }
 
